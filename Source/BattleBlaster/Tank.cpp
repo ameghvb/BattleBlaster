@@ -16,6 +16,15 @@ void ATank::BeginPlay()
 {
 	Super::BeginPlay();
 
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller)) {
+		
+		if (ULocalPlayer* LocalPlayer = PlayerController->GetLocalPlayer()) {
+			
+			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer)) {
+				Subsystem->AddMappingContext(DefaultMappingContext, 0);
+			}
+		}
+	}
 }
 
 // Called every frame
