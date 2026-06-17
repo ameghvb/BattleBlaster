@@ -29,4 +29,11 @@ public:
 	float FireRange = 300.0f;
 
 	ATank* Tank;
+
+	void CheckFireCondition();
+
+	bool IsInFireRange();
+
+	UPROPERTY(EditAnywhere)
+	float FireRate = 2.0f;
 };
